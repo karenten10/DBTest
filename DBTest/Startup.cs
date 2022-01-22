@@ -3,13 +3,19 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using InspectionBlazor.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Syncfusion.Blazor;
+using InspectionBlazor.RazorModels;
+using InspectionBlazor.Helpers;
+using Database.Models.Models;
 
 namespace DBTest
 {
@@ -26,9 +32,30 @@ namespace DBTest
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+
+            
+
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddSyncfusionBlazor();
+
+            services.AddDbContext<InspectionDBContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("InspectionDBContext")),
+                    ServiceLifetime.Transient);
+
+            RegisterInspectionService(services);
+
+            services.AddAutoMapper(c => c.AddProfile<AutoMapping>(), typeof(Startup));
+
+        }
+
+        private static void RegisterInspectionService(IServiceCollection services)
+        {
+            services.AddTransient<JobTitleService>();
+
+            services.AddTransient<JobTitleRazorModel>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
