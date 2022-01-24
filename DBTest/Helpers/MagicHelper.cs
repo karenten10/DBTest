@@ -1,4 +1,5 @@
 ﻿//// using InspectionBlazor.DataModels;
+using InspectionBlazor.DataModels;
 using System;
 using System.Collections.Generic;
 
@@ -25,11 +26,11 @@ namespace InspectionBlazor.Helpers
         public static string 到位 { get; set; } = "到位";
         public static string 巡檢 { get; set; } = "巡檢";
         public static string InspectionMapURL { get; set; }
-        //public static List<StatusSelectModel> StatusList { get; set; } = new List<StatusSelectModel>()
-        //{
-        //    new StatusSelectModel(){ Code = StatusYesCode, Title = StatusYes },
-        //    new StatusSelectModel(){ Code = StatusNoCode, Title = StatusNo },
-        //};
+        public static List<StatusSelectModel> StatusList { get; set; } = new List<StatusSelectModel>()
+        {
+            new StatusSelectModel(){ Code = StatusYesCode, Title = StatusYes },
+            new StatusSelectModel(){ Code = StatusNoCode, Title = StatusNo },
+        };
 
         public static string GetStatusName(string code)
         {

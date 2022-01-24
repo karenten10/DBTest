@@ -89,28 +89,28 @@ namespace InspectionBlazor.Services
             return result != null ? true : false;
         }
 
-        //public async Task<string> GetJobTitleByPeopleAsync(int?[] ids)
-        //{
-        //    string name = string.Empty;
+        public async Task<string> GetJobTitleByPeopleAsync(int?[] ids)
+        {
+            string name = string.Empty;
 
-        //    if (ids != null)
-        //    {
-        //        var result = await context.Person
-        //            .Include(x => x.JobTitle)
-        //            .AsNoTracking()
-        //            .Where(x => ids.Contains(x.Id) && x.JobTitle != null)
-        //            .Select(x => x.JobTitle.Name)
-        //            .Distinct()
-        //            .ToListAsync();
+            if (ids != null)
+            {
+                var result = await context.Person
+                    .Include(x => x.JobTitle)
+                    .AsNoTracking()
+                    .Where(x => ids.Contains(x.Id) && x.JobTitle != null)
+                    .Select(x => x.JobTitle.Name)
+                    .Distinct()
+                    .ToListAsync();
 
-        //        foreach (var item in result)
-        //            name += $"{item}、";
+                foreach (var item in result)
+                    name += $"{item}、";
 
-        //        if (name.Length > 0)
-        //            name = name.Substring(0, name.Length - 1);
-        //    }
+                if (name.Length > 0)
+                    name = name.Substring(0, name.Length - 1);
+            }
 
-        //    return name;
-        //}
+            return name;
+        }
     }
 }

@@ -46,7 +46,7 @@
         <Content>
             <EditForm Model="@RazorModel.CurrentRecord" OnValidSubmit="RazorModel.HandleValidSubmit">
                 <DataAnnotationsValidator />
-                @*<InputWatcher EditContextActionChanged="@RazorModel.OnEditContestChanged" />*@
+                <InputWatcher EditContextActionChanged="@RazorModel.OnEditContestChanged" />
                 <div>
                     <div class="form-row">
                         <div class="form-group col">
@@ -68,7 +68,7 @@
     <DialogPositionData X="center" Y="center"></DialogPositionData>
 </SfDialog>
 
-@*<MessageBox Height="@RazorModel.MessageBox.Height" Width="@RazorModel.MessageBox.Width"
+<MessageBox Height="@RazorModel.MessageBox.Height" Width="@RazorModel.MessageBox.Width"
             IsVisible="@RazorModel.MessageBox.IsVisible"
             Title="@RazorModel.MessageBox.Title" Message="@RazorModel.MessageBox.Body"
             Callback="x=>RazorModel.MessageBox.Hidden()" />
@@ -78,7 +78,7 @@
             Title="@RazorModel.ConfirmMessageBox.Title" Message="@RazorModel.ConfirmMessageBox.Body"
             Callback="x=>RazorModel.RemoveThisRecord(x)" />
 
-<InspectionBlazor.Components.DialogBackground />*@
+<DBTest.Components.DialogBackground />
 
 @code{
     SfGrid<JobTitleAdapterModel> Grid;

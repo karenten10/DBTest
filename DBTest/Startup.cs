@@ -34,12 +34,12 @@ namespace DBTest
         {
             services.AddControllers();
 
-            
 
+            services.AddSyncfusionBlazor();
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-            services.AddSyncfusionBlazor();
+            
 
             services.AddDbContext<InspectionDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("InspectionDBContext")),
@@ -53,9 +53,106 @@ namespace DBTest
 
         private static void RegisterInspectionService(IServiceCollection services)
         {
+            #region µù¥UªA°È
+            services.AddTransient<WorkLogService>();
+            services.AddTransient<CircularGaugeService>();
+            services.AddTransient<PersonDepartmentService>();
+            services.AddTransient<PersonManagerService>();
+            services.AddTransient<FormMappingService>();
+            services.AddTransient<FormPathService>();
+            services.AddTransient<FormReportService>();
+            services.AddTransient<NoInspectCalendarService>();
+            // services.AddTransient<FaultImproveService>();
+            // services.AddTransient<ManagerApprovalService>();
+            services.AddTransient<AuditService>();
+            // services.AddTransient<ImageRepositoryService>();
+            services.AddTransient<EquipmentExamItemTemplateService>();
+            services.AddTransient<EquipmentTemplateService>();
+            services.AddTransient<PersonService>();
+            services.AddTransient<VirtualEquipmentExamItemService>();
+            services.AddTransient<EquipmentExamService>();
+            services.AddTransient<PatrolPlaceService>();
+            services.AddTransient<SectionService>();
+            services.AddTransient<EquipmentService>();
+            services.AddTransient<PatrolPathService>();
+            services.AddTransient<PatrolScopeService>();
+            services.AddTransient<PatrolPathScopeService>();
+            services.AddTransient<EquipmentExamItemService>();
+            // services.AddTransient<PatrolPathPeriodService>();
+            services.AddTransient<PatrolPathNplaceService>();
+            services.AddTransient<BulletinService>();
+            services.AddTransient<AuthorityService>();
+            services.AddTransient<MenuListService>();
             services.AddTransient<JobTitleService>();
+            services.AddTransient<DepartmentService>();
+            services.AddTransient<AssignedMattersService>();
+            services.AddTransient<InspectionRecordService>();
+            services.AddTransient<InspectionRecordStatisticsService>();
+            services.AddTransient<DaliyAbnormalService>();
+            services.AddTransient<EquipmentCategoryService>();
+            services.AddTransient<EquipmentCategoryPartsService>();
+            services.AddTransient<RemakerService>();
+            services.AddTransient<EquipmentBasicService>();
+            services.AddTransient<EquipmentComponentService>();
+            //services.AddTransient<EquipmentMaintenService>();
+            //services.AddTransient<EquipmentFixService>();
+            // services.AddTransient<EquipmentFileService>();
+            // services.AddTransient<DocRepositoryService>();
+            services.AddTransient<EquipmentTrendChartService>();
+            services.AddTransient<MobileDeviceService>();
+            // services.AddTransient<OutComeEditService>();
+            services.AddTransient<HandyMasterService>();
+            services.AddTransient<HandyDetailService>();
+            services.AddTransient<CanMessageService>();
+            services.AddTransient<FaultImproveDetailService>();
+            services.AddTransient<PadSettingsService>();
+            services.AddTransient<ExpandService>();
+            services.AddTransient<UpdateFileService>();
+            services.AddTransient<PadMessageService>();
+            services.AddTransient<PlaceStayTimeService>();
+            services.AddTransient<ExceptionMessageService>();
+            services.AddTransient<SmtpService>();
+            services.AddTransient<PersonnelChangeService>();
+            services.AddTransient<WorkTypeService>();
+            services.AddTransient<ContractorShiftService>();
+            services.AddTransient<LeaveTypeService>();
+            services.AddTransient<AttendanceRegisterService>();
+            services.AddTransient<WorkingPlanCollectionService>();
+            services.AddTransient<ShiftSchedulingRulesService>();
+            services.AddTransient<ContractEmployeesService>();
+            // services.AddTransient<InspcetMapService>();
+            services.AddTransient<PatrolGroupService>();
+            services.AddTransient<PatrolGroupPathService>();
+            services.AddTransient<PartInfoService>();
+            // services.AddTransient<PFMasterService>();
+            services.AddTransient<PartLocationInfoService>();
+            // services.AddTransient<MWMasterService>();
+            // services.AddTransient<CourseStatisticsService>();
+            // services.AddTransient<TargetDashboardService>();
+            services.AddTransient<FireFightReportSaveService>();
+            services.AddTransient<SituationDashboardService>();
+            services.AddTransient<WorkScheduleService>();
+            services.AddTransient<OldInspectionRecordAllService>();
+            services.AddTransient<RepairEquipmentService>();
+            services.AddTransient<RepairEquipmentGroupService>();
+            services.AddTransient<RepairEquipmentMasterService>();
+            services.AddTransient<RepairEquipmentPersonService>();
+            services.AddTransient<RepairEquipmentGroupService>();
+            services.AddTransient<RepairEquipmentMasterService>();
+            services.AddTransient<RepairEquipmentPersonService>();
+            services.AddTransient<EquipmentMaintainCycleService>();
+            services.AddTransient<RepairRemakerService>();
+            services.AddTransient<RepairEquipmentRepairRemakerService>();
+            services.AddTransient<RepairMasterService>();
+            services.AddTransient<StockChangeHistoryService>();
+            #endregion
 
+            #region µù¥U Razor Model
             services.AddTransient<JobTitleRazorModel>();
+            services.AddTransient<AuthorityRazorModel>();
+            services.AddTransient<PersonRazorModel>();
+            services.AddTransient<PersonnelChangeRazorModel>();
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,12 +7,12 @@ namespace Database.Models.Models
     {
         public JobTitle()
         {
-            // Person = new HashSet<Person>();
+            Person = new HashSet<Person>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
 
-        // public virtual ICollection<Person> Person { get; set; }
+        public virtual ICollection<Person> Person { get; set; }
     }
 }
